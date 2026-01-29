@@ -1,0 +1,55 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.TeamMemberComponent {
+    padding: 24px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 450px;
+
+    .member {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        img {
+            width: 48px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+
+        .memberInfo {
+            display: flex;
+            gap: 4px;
+            flex-direction: column;
+
+
+            .type12 {
+                color: $secondary-400;
+            }
+        }
+    }
+
+    .type14 {
+        color: $secondary-300;
+    }
+
+    .statistic {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .tasksCounter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .icon {
+                color: $secondary-400;
+                font-size: 20px;
+            }
+        }
+    }
+}
