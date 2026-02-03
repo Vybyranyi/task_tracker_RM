@@ -1,0 +1,32 @@
+@use "../assets//styles/colorVariables.scss" as *;
+
+.statusBadge {
+    background-color: $base-gray;
+    color: $secondary-500;
+    padding: 6px 0;
+    width: 117px;
+    text-align: center;
+    border-radius: 100px;
+
+    &.approved {
+        background-color: $green-bg;
+        color: $green;
+    }
+
+    &.delayed {
+        background-color: $yellow-bg;
+        color: $yellow;
+    }
+
+    &.on-going {
+        background-color: $orange-bg;
+        color: $orange;
+    }
+
+    &.re-work {
+        background-color: $red-bg;
+        color: $red;
+    }
+
+
+}
