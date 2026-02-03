@@ -1,0 +1,26 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.sideBarButton {
+    color: $secondary-300;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 188px;
+    box-sizing: border-box;
+    background-color: transparent;
+    transition: all 0.3s ease;
+
+    span {
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover {
+        background-color: $secondary-100;
+        color: $secondary-500;
+    }
+}
