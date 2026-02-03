@@ -1,6 +1,7 @@
 import "./App.css";
 import TeamMember from "./components/TeamMember";
 import member1 from "./assets/images/members/member1.jpg";
+import Button from "./components/Button";
 
 const member123 = {
   name: "Jessica",
@@ -14,7 +15,9 @@ const member123 = {
 function App() {
   return (
     <>
-      <TeamMember member={member123} />
+      {/* <TeamMember member={member123} /> */}
+      <Button disabled>Click Me</Button>
+      <Button color="error" disabled>Click Me</Button>
     </>
   );
 }

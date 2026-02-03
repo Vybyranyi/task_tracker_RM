@@ -1,0 +1,28 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.button {
+    background-color: $primary-purple;
+    color: $base-white;
+    padding: 8px 42px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: $primary-purple-hover;
+    }
+
+    &.error {
+        background-color: $error-red;
+
+        &:hover {
+            background-color: $error-red-hover;
+        }
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
