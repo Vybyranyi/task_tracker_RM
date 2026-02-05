@@ -1,10 +1,13 @@
 import "./App.css";
 import LayOut from "./components/LayOut";
+import YourTeamPage from "./pages/YourTeamPage";
 
 function App() {
   return (
     <>
-      <LayOut></LayOut>
+      <LayOut>
+        <YourTeamPage />
+      </LayOut>
     </>
   );
 }
