@@ -1,0 +1,11 @@
+.AppWrapper {
+    display: flex;
+    
+    .mainContent {
+        flex-grow: 1;
+        
+        main{
+            padding: 32px;
+        }
+    }
+}

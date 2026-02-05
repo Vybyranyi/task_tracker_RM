@@ -1,1 +1,5 @@
 @use "../assets/styles/colorVariables.scss" as *;
+
+.header {
+    border-bottom: 1px solid $secondary-100;
+}
