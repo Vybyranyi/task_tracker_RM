@@ -1,0 +1,30 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.iconButton{
+    font-size: 24px;
+    color: $secondary-300;
+    width: 52px;
+    height: 52px;
+    border: 1px solid $secondary-100;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
+
+    &:hover{
+        background-color: $secondary-100;
+    }
+
+    .notificationDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background-color: $pink;
+        position: absolute;
+        top: 15px;
+        right: 16px;
+    }
+}

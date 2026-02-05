@@ -1,0 +1,30 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.userInfo {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding: 32px 50px 44px 32px;
+
+
+    .userName {
+        .text {
+            color: $secondary-400;
+            margin-top: 8px;
+        }
+    }
+
+    .userPhoto {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 4px;
+
+        img {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}

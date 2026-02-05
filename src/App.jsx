@@ -21,7 +21,7 @@ function App() {
       {/* <Button disabled>Click Me</Button> */}
       {/* <Button color="error" disabled>Click Me</Button> */}
       {/* <StatusBadge status="on-going" /> */}
-      <SideBar />
+      {/* <SideBar /> */}
     </>
   );
 }
