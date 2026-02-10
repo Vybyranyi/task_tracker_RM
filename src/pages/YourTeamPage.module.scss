@@ -1,0 +1,8 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.teamContainer {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+}

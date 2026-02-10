@@ -1,11 +1,18 @@
 import { IoDocumentTextOutline } from "react-icons/io5";
 import styles from "./TeamMember.module.scss";
+import default_user from "../assets/images/members/default_user.png";
 
 const TeamMember = ({member}) => {
   return (
     <div className={styles.TeamMemberComponent}>
       <div className={styles.member}>
-        <img src={member.img} alt="member photo" />
+
+        {member.img ? (
+          <img src={member.img} alt="member photo" />
+        ) : (
+          <img src={default_user} alt="default photo" />
+        )}
+
         <div className={styles.memberInfo}>
           <p className="type16">{member.name} {member.surname}</p>
           <p className="type12">{member.position}</p>
@@ -19,7 +26,7 @@ const TeamMember = ({member}) => {
           <IoDocumentTextOutline className={styles.icon} />
           <p>60 Task</p>
         </span>
-        <p>4,9  (970 Reviews)</p>
+        <p>4,9 (970 Reviews)</p>
       </div>
     </div>
   );

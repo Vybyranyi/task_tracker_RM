@@ -2,7 +2,7 @@ import img from '../assets/images/members/member1.jpg';
 
 const YourTeamMembers = [
     {
-        img: img,
+        // img: img,
         name: 'Marian',
         surname: 'Koval',
         position: 'Frontend Developer',
@@ -16,7 +16,7 @@ const YourTeamMembers = [
         description: 'Coordinates the team and keeps the roadmap on track.'
     },
     {
-        img: img,
+        // img: img,
         name: 'Ivan',
         surname: 'Shevchenko',
         position: 'Backend Developer',
