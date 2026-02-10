@@ -1,6 +1,6 @@
 import styles from "./Button.module.scss";
 
-const Button = ({ children, color, disabled, onClick }) => {
+const Button = ({ children, color, disabled, onClick, type }) => {
   const buttonClass = color === "error" ? styles.error : "";
 
   return (
@@ -8,6 +8,7 @@ const Button = ({ children, color, disabled, onClick }) => {
       className={`type14 ${styles.button} ${buttonClass}`}
       disabled={disabled}
       onClick={onClick}
+      type={type}
     >
       {children}
     </button>
