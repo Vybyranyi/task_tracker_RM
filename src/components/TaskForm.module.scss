@@ -1,0 +1,58 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.formWrapper {
+    max-width: 500px;
+
+    .form {
+        padding-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .formGroup {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            input {
+                height: 40px;
+                background-color: $base-white;
+                border: 1px solid $secondary-300;
+                border-radius: 8px;
+                padding-left: 14px;
+
+                &::placeholder {
+                    font-size: 14px;
+                    color: $secondary-900;
+                }
+
+            }
+
+            textarea {
+                height: 128px;
+                background-color: $base-white;
+                border: 1px solid $secondary-300;
+                border-radius: 8px;
+                padding-left: 14px;
+                padding-top: 14px;
+
+                &::placeholder {
+                    font-size: 14px;
+                    color: $secondary-900;
+                }
+            }
+
+            .error {
+                color: $error-red;
+                font-size: 12px;
+            }
+
+        }
+
+
+        button {
+            width: 170px;
+        }
+
+    }
+}
