@@ -23,6 +23,12 @@ const taskValidationSchema = Yup.object().shape({
   developerId: Yup.string().required("Developer is required"),
 });
 
+const addToLocalStorage = (value) => {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.push(value);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
 const TaskForm = () => {
   return (
     <div className={styles.formWrapper}>
@@ -30,7 +36,11 @@ const TaskForm = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={taskValidationSchema}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values, { resetForm }) => {
+          addToLocalStorage(values);
+          resetForm();
+          console.log(values);
+        }}
       >
         {({ isValid, dirty }) => (
           <Form className={styles.form}>
@@ -38,11 +48,7 @@ const TaskForm = () => {
               <label htmlFor="title" className="type14">
                 Task Title
               </label>
-              <Field
-                type="text"
-                name="title"
-                placeholder="Enter a title..."
-              />
+              <Field type="text" name="title" placeholder="Enter a title..." />
               <ErrorMessage
                 name="title"
                 component="div"
@@ -70,7 +76,7 @@ const TaskForm = () => {
               <label htmlFor="deadline" className="type14">
                 Task Deadline
               </label>
-              <Field type="date" name="deadline"/>
+              <Field type="date" name="deadline" />
               <ErrorMessage
                 name="deadline"
                 component="div"
@@ -80,9 +86,7 @@ const TaskForm = () => {
 
             <div className={styles.formGroup}>
               <Field as="select" name="developerId">
-                <option value="" selected>
-                  Select a developer
-                </option>
+                <option value="">Select a developer</option>
                 {developers.map((developer) => (
                   <option key={developer.id} value={developer.id}>
                     {developer.name} {developer.surname}
