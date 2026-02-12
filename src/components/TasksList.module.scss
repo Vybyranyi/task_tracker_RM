@@ -1,0 +1,57 @@
+@use "../assets/styles/colorVariables.scss" as *;
+
+.tasksList {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+
+
+    thead {
+        background-color: $secondary-50;
+        color: $secondary-600;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+
+        tr {
+            height: 44px;
+            border-bottom: 1px solid $secondary-100;
+
+            th {
+                &:nth-child(1) {
+                    width: 48px;
+                }
+
+                &:nth-child(2) {
+                    width: 50%;
+                }
+
+                &:nth-child(3) {
+                    width: 20%;
+                }
+
+                &:nth-child(4) {
+                    width: 20%;
+                }
+
+                &:nth-child(5) {
+                    width: 48px;
+                }
+            }
+        }
+
+    }
+
+    tbody {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        color: $secondary-600;
+
+        tr {
+            height: 72px;
+            background-color: $base-white;
+            border-bottom: 1px solid $secondary-100;
+        }
+    }
+}
