@@ -2,11 +2,13 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import styles from "./TaskForm.module.scss";
 import * as Yup from "yup";
 import Button from "./Button";
+import developers from "../lib/developers.jsx";
 
 const initialValues = {
   title: "",
   description: "",
   deadline: "",
+  developerId: "",
 };
 
 const taskValidationSchema = Yup.object().shape({
@@ -18,6 +20,7 @@ const taskValidationSchema = Yup.object().shape({
     "Description must contain up to 300 characters",
   ),
   deadline: Yup.string().required("Deadline is required"),
+  developerId: Yup.string().required("Developer is required"),
 });
 
 const TaskForm = () => {
@@ -39,7 +42,6 @@ const TaskForm = () => {
                 type="text"
                 name="title"
                 placeholder="Enter a title..."
-                className={styles.input}
               />
               <ErrorMessage
                 name="title"
@@ -56,7 +58,6 @@ const TaskForm = () => {
                 as="textarea"
                 name="description"
                 placeholder="Enter a description..."
-                className={styles.textarea}
               />
               <ErrorMessage
                 name="description"
@@ -69,12 +70,25 @@ const TaskForm = () => {
               <label htmlFor="deadline" className="type14">
                 Task Deadline
               </label>
-              <Field type="date" name="deadline" className={styles.input} />
+              <Field type="date" name="deadline"/>
               <ErrorMessage
                 name="deadline"
                 component="div"
                 className={styles.error}
               />
+            </div>
+
+            <div className={styles.formGroup}>
+              <Field as="select" name="developerId">
+                <option value="" selected>
+                  Select a developer
+                </option>
+                {developers.map((developer) => (
+                  <option key={developer.id} value={developer.id}>
+                    {developer.name} {developer.surname}
+                  </option>
+                ))}
+              </Field>
             </div>
 
             <Button disabled={!(isValid && dirty)} type="submit">

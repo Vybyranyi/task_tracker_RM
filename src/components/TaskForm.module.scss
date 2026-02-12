@@ -14,7 +14,8 @@
             flex-direction: column;
             gap: 6px;
 
-            input {
+            input,
+            select {
                 height: 40px;
                 background-color: $base-white;
                 border: 1px solid $secondary-300;
@@ -25,7 +26,10 @@
                     font-size: 14px;
                     color: $secondary-900;
                 }
+            }
 
+            select {
+                height: 42px;
             }
 
             textarea {
