@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { BiCheckbox, BiSolidCheckboxChecked } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
-import tasks from "../lib/tasks.jsx";
 import styles from "./TasksList.module.scss";
+import { useTasksStore } from "../store/useTasksStore.js";
 
 const TasksList = () => {
   const [openTasksId, setOpenTasksId] = useState([]);
+  const { tasks } = useTasksStore();
 
   const toggleTastks = (id) => {
     if (openTasksId.includes(id)) {

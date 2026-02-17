@@ -3,6 +3,7 @@ import styles from "./TaskForm.module.scss";
 import * as Yup from "yup";
 import Button from "./Button";
 import developers from "../lib/developers.jsx";
+import { useTasksStore } from "../store/useTasksStore.js";
 
 const initialValues = {
   title: "",
@@ -23,13 +24,9 @@ const taskValidationSchema = Yup.object().shape({
   developerId: Yup.string().required("Developer is required"),
 });
 
-const addToLocalStorage = (value) => {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks.push(value);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-};
-
 const TaskForm = () => {
+  const { addTask } = useTasksStore();
+
   return (
     <div className={styles.formWrapper}>
       <h2 className="type32">Create Task</h2>
@@ -37,9 +34,8 @@ const TaskForm = () => {
         initialValues={initialValues}
         validationSchema={taskValidationSchema}
         onSubmit={(values, { resetForm }) => {
-          addToLocalStorage(values);
+          addTask(values);
           resetForm();
-          console.log(values);
         }}
       >
         {({ isValid, dirty }) => (
