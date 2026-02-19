@@ -32,6 +32,11 @@ export const useTasksStore = create((set) => ({
     },
   ],
 
+  getTaskById: (id) => {
+    const { tasks } = useTasksStore.getState();
+    return tasks.find((task) => task.id === id);
+  },
+
   addTask: (task) => {
     const { tasks } = useTasksStore.getState();
 
@@ -45,6 +50,10 @@ export const useTasksStore = create((set) => ({
     set({ tasks: [...tasks, newTask] });
     console.log(newTask);
   },
+  
+  updatedTask: (updatedTask) => {
+    // Тут має бути функція
+   },
 
   deleteTask: (id) => {
     const { tasks } = useTasksStore.getState();

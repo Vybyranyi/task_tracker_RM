@@ -4,6 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import styles from "./TasksList.module.scss";
 import { useTasksStore } from "../store/useTasksStore.js";
+import { useNavigate } from "react-router";
 
 const TasksList = () => {
   const [openTasksId, setOpenTasksId] = useState([]);
@@ -16,6 +17,8 @@ const TasksList = () => {
       setOpenTasksId([...openTasksId, id]);
     }
   };
+
+  const navigate = useNavigate();
 
   return (
     <table className={styles.tasksList}>
@@ -42,7 +45,7 @@ const TasksList = () => {
               <td>{task.deadline}</td>
               <td>
                 <div className={styles.actions}>
-                  <FaEdit />
+                  <FaEdit onClick={() => navigate(`/create-task/?taskid=${task.id}`)} />
                   <MdDeleteOutline onClick={() => deleteTask(task.id)}/>
                 </div>
               </td>

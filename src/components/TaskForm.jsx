@@ -4,13 +4,7 @@ import * as Yup from "yup";
 import Button from "./Button";
 import developers from "../lib/developers.jsx";
 import { useTasksStore } from "../store/useTasksStore.js";
-
-const initialValues = {
-  title: "",
-  description: "",
-  deadline: "",
-  developerId: "",
-};
+import { useSearchParams } from "react-router";
 
 const taskValidationSchema = Yup.object().shape({
   title: Yup.string()
@@ -25,16 +19,31 @@ const taskValidationSchema = Yup.object().shape({
 });
 
 const TaskForm = () => {
-  const { addTask } = useTasksStore();
+  const { addTask, getTaskById } = useTasksStore();
+
+  const [searchParams] = useSearchParams();
+  const taskId = searchParams.get("taskid");
+  const task = getTaskById(Number(taskId));
+
+  const initialValues = {
+    title: task?.title || "",
+    description: task?.description || "",
+    deadline: task?.deadline || "",
+    developerId: task?.developerId || "",
+  };
 
   return (
     <div className={styles.formWrapper}>
-      <h2 className="type32">Create Task</h2>
+      <h2 className="type32">{task ? "Edit Task" : "Create Task"}</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={taskValidationSchema}
         onSubmit={(values, { resetForm }) => {
-          addTask(values);
+          if (task) {
+              // Implement edit functionality here
+          } else {
+            addTask(values);
+          }
           resetForm();
         }}
       >
@@ -92,7 +101,7 @@ const TaskForm = () => {
             </div>
 
             <Button disabled={!(isValid && dirty)} type="submit">
-              Create Task
+              {task ? "Edit Task" : "Create Task"}
             </Button>
           </Form>
         )}
