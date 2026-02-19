@@ -7,7 +7,7 @@ import { useTasksStore } from "../store/useTasksStore.js";
 
 const TasksList = () => {
   const [openTasksId, setOpenTasksId] = useState([]);
-  const { tasks } = useTasksStore();
+  const { tasks, deleteTask } = useTasksStore();
 
   const toggleTastks = (id) => {
     if (openTasksId.includes(id)) {
@@ -43,7 +43,7 @@ const TasksList = () => {
               <td>
                 <div className={styles.actions}>
                   <FaEdit />
-                  <MdDeleteOutline />
+                  <MdDeleteOutline onClick={() => deleteTask(task.id)}/>
                 </div>
               </td>
             </tr>
